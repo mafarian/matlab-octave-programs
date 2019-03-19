@@ -28,3 +28,7 @@ is.
 MAP (input data)
 .The input data is a adjacency matrix, where the position (i,j) is equal to 0 if there's no direct path from i to j, and Cij if
 there is a path, where Cij is the respective distance.
+
+
+--
+Stark.
