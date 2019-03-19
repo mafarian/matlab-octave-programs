@@ -33,4 +33,4 @@ The input data is a adjacency matrix, where the position (i,j) is equal to 0 if 
 
 
 --
-*-Stark-*.
+*Stark*.
