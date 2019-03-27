@@ -1,0 +1,36 @@
+% solving a linear system Ax = b using LU decomposition and back-substitution
+
+function x = LinSys_LU(A,b);
+  [L,U] = Fact_LU(A);
+  [n,m] = size(A);
+  
+  y(1) = b(1)/L(1,1);
+
+  for i = 2:n     % solving the system Ly = b
+    sum = b(i);
+   
+    for j = 1:(i-1)
+      sum = sum - L(i,j)*y(j);
+    end
+   
+    y(i) = sum/L(i,i);
+  end
+  
+  y = y';
+  
+  x(n) = y(n)/U(n,n); % solving the system Ux = y
+   
+  for k=(n-1):-1:1
+    sum = y(k);
+    
+    for j=(k+1):n
+      sum = sum - U(k,j)*x(j);
+    end
+    
+    x(k) = sum/U(k,k);
+  end
+  
+  fprintf('\nSystem solution:\n');
+  disp(x);
+  
+end
